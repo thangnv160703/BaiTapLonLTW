@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Thông tin phòng</title>
+</head>
+
+<body>
+	<h1>Thông tin phòng <span th:text="${room.id}"></span></h1>
+	<table>
+		<tr>
+			<td th:text="'Tên phòng: '" align="left"></td>
+			<td th:text="${room.id}"></td>
+		</tr>
+		<tr>
+			<td th:text="'Loại phòng: '" align="left"></td>
+			<td th:text="${room.type}"></td>
+		</tr>
+		<tr>
+			<td th:text="'Giá phòng: '" align="left"></td>
+			<td th:text="${room.price} + '/ngày'"></td>
+		</tr>
+		<tr>
+			<td th:text="'Chi tiết: '" align="left"></td>
+			<td th:if="${room.description}" th:text="${room.description}"></td>
+		</tr>
+		<tr>
+			<td>
+				<button><a th:href="@{/view}" th:text="'Quay lại'"></a></button>
+			</td>
+			<td>
+				<button><a th:href="@{/booking/{id}(id=${room.id})}" 
+				th:text="'Đặt phòng'" align="center"></a></button>
+			</td>
+		</tr>
+	</table>
+
+
+</body>

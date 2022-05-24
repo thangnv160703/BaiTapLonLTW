@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:tiles="http://www.thymeleaf.org">
+
+<head>
+	<title>Tao tai khoan</title>
+</head>
+
+<body>
+	<h1>Tạo tài khoản mới</h1>
+	<form th:action="@{/account/create}" method="post">
+		<h2>Thông tin tài khoản</h2>
+		<table th:object="${user}">
+			<tr>
+				<td th:text="'Tên đăng nhập: '"></td>
+				<td><input type="text" th:field="*{username}"></td>
+			</tr>
+			<tr>
+				<td th:text="'Mật khẩu: '"></td>
+				<td><input type="password" th:field="*{password}"></td>
+			</tr>
+		</table>
+		<h2>Thông tin cá nhân</h2>
+		<table th:object="${client}">
+			<tr>
+				<td th:text="'Họ tên: '"></td>
+				<td><input type="text" th:field="*{fullname}"></td>
+			</tr>
+			<tr>
+				<td th:text="'Căn cước công dân: '"></td>
+				<td><input type="text" th:field="*{idCard}"></td>
+			</tr>
+			<tr>
+				<td th:text="'Số điện thoại: '"></td>
+				<td><input type="text" th:field="*{phoneNumber}"></td>
+			</tr>
+			<tr>
+				<td th:text="'Email(nếu có): '"></td>
+				<td><input type="email" th:field="*{email}"></td>
+			</tr>
+			<tr>
+				<td th:text="'Địa chỉ: '"></td>
+				<td><input type="text" th:field="*{address}"></td>
+			</tr>
+			<tr>
+				<td th:text="'Tài khoản ngân hàng: '"></td>
+				<td><input type="text" th:field="*{bankAccount}"></td>
+			</tr>
+		</table>
+		<input type="submit" value="Đăng kí">
+	</form>
+</body>
+
+</html>

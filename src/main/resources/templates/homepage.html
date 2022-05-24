@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Homepage</title>
+</head>
+
+<body>
+	<h1>Welcome
+		<span th:if="${user}" th:text="${user.username}"></span>
+		!
+	</h1>
+	<table align="center">
+		<tr>
+			<td><button><a th:href="@{/login}" th:text="'Đăng nhập'"></a></button></td>
+			<td><button><a th:href="@{/account}" th:text="'Tài khoản'"></a></button></td>
+			<td><button><a th:href="@{/view}" th:text="'Xem danh sách phòng'"></a></button></td>
+			
+		</tr>
+	</table>
+</body>
+
+</html>

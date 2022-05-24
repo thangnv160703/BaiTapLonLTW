@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Thông tin phòng</title>
+</head>
+
+<body>
+	<h1>Dat phòng <span th:text="${room.id}"></span></h1>
+	<form th:object="${booking}" method="post">
+		<table>
+			<tr>
+				<td th:text="'Ngay nhan: '" align="left"></td>
+				<td>
+					<input type="date" th:field="*{checkin}">
+				</td>
+			</tr>
+			<tr>
+				<td th:text="'Ngay tra: '" align="left"></td>
+				<td>
+					<input type="date" th:field="*{checkout}">
+				</td>
+			</tr>
+			<tr th:if="${booking.totalPrice}">
+				<td th:text="'Giá phòng: '" align="left"></td>
+				<td th:text="${booking.totalPrice}"></td>
+			</tr>
+			<tr>
+				<td th:text="'Ghi chu: '" align="left"></td>
+				<td>
+					<input type="text" th:field="*{note}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" value="Xac nhan">
+				</td>
+				<td>
+					<button><a th:href="@{/view}" th:text="'Huy dat phong'"></a></button>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>
